@@ -1,0 +1,89 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>6CAFC0C6-A428-4d30-A9F9-700E829FEA51</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MyApplication</RootNamespace>
+    <AssemblyName>MyApplication</AssemblyName>
+    <Name>powershell</Name>
+    <PackageEntryPoint>dndToolkitMainWindow.xaml.ps1</PackageEntryPoint>
+    <Bundle>True</Bundle>
+    <DotNetVersion>v4.7.2</DotNetVersion>
+    <PackageType>Console</PackageType>
+    <PackageAsExecutable>True</PackageAsExecutable>
+    <PackageModules>False</PackageModules>
+    <StartupFile>dndToolkitMainWindow.xaml.ps1</StartupFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="data\languages\default.json" />
+    <Content Include="data\npcFiles\npc1_shopKeep.json" />
+    <Content Include="data\playerFiles\player1_Chris.json" />
+    <Content Include="data\playerFiles\player2_Pete.json" />
+    <Content Include="data\playerFiles\player3_Kody.json" />
+    <Content Include="data\playerTemplate.json" />
+    <Content Include="dndToolkitMainWindow.xaml" />
+    <Content Include="img\demo\1filesLoaded.PNG" />
+    <Content Include="img\demo\2selections.PNG" />
+    <Content Include="img\demo\3load.PNG" />
+    <Content Include="img\demo\4received.PNG" />
+    <Content Include="img\demo\5translated.PNG" />
+    <Content Include="img\demo\6languageUnknown.PNG" />
+    <Content Include="WpfWindow1.xaml" />
+    <Content Include="WpfWindow2.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="dndToolkitMainWindow.xaml.ps1">
+      <SubType>Code</SubType>
+      <DependentUpon>dndToolkitMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="modules\dndToolkit.psd1" />
+    <Compile Include="modules\modules.psm1" />
+    <Compile Include="WpfWindow1.xaml.ps1">
+      <SubType>Code</SubType>
+      <DependentUpon>WpfWindow1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfWindow2.xaml.ps1">
+      <SubType>Code</SubType>
+      <DependentUpon>WpfWindow2.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Name>PresentationFramework</Name>
+      <AssemblyName>
+      </AssemblyName>
+      <HintPath>
+      </HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="data\languages\" />
+    <Folder Include="data\playerFiles\" />
+    <Folder Include="data\npcFiles\" />
+    <Folder Include="img\demo\" />
+    <Folder Include="modules\" />
+    <Folder Include="data\" />
+    <Folder Include="img\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Target Name="Build" />
+  <Import Project="$(MSBuildExtensionsPath)\PowerShell Tools for Visual Studio\PowerShellTools.targets" Condition="Exists('$(MSBuildExtensionsPath)\PowerShell Tools for Visual Studio\PowerShellTools.targets')" />
+</Project>

@@ -1,0 +1,11 @@
+{
+  "charName" : "Zeirith",
+  "playerName" : "Kody",
+  "playerNumber" : 3,
+  "charRace" : "Half-Elf",
+  "charLanguages" : [
+    "Common",
+    "Elvish",
+    "Goblin"
+  ]
+}

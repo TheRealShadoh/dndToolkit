@@ -1,0 +1,10 @@
+{
+  "charName" : "Shadoh",
+  "playerName" : "Chris",
+  "playerNumber" : 1,
+  "charRace" : "Elf",
+  "charLanguages" : [
+    "Common",
+    "Elvish"
+  ]
+}

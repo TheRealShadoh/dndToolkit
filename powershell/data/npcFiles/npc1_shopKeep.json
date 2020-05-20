@@ -1,0 +1,10 @@
+{
+  "charName" : "Gruul",
+  "playerName" : "DM",
+  "playerNumber" : 101,
+  "charRace" : "Goblin",
+  "charLanguages" : [
+    "Common",
+    "Goblin"
+  ]
+}

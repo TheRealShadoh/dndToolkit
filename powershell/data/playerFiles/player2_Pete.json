@@ -1,0 +1,10 @@
+{
+  "charName" : "Exeldrian",
+  "playerName" : "Pete",
+  "playerNumber" : 2,
+  "charRace" : "Dwarf",
+  "charLanguages" : [
+    "Common",
+    "Dwarvish"
+  ]
+}
