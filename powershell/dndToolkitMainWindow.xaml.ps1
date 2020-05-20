@@ -50,7 +50,7 @@ Set-EventHandlers
 function window_Loaded
 {
 	param($sender, $e)
-	$playerPicture.Source = "C:\git\dndToolkit\powershell\img\playerIcon1.png"
+	$playerPicture.Source = $PSScriptRoot +"\img\playerIcon1.png"
 
 }
 
