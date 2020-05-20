@@ -12,9 +12,9 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="20"/>
                     <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="100*"/>
                     <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="49*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="20"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -61,7 +61,7 @@
                     Width="300"
                     TextWrapping="Wrap"
                     Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>
-                <Button Content="I Don't Like Fun!" Grid.Column="2" Grid.Row="4" Margin="20"/>
+                <Button x:Name="playerButton" Content="I Don't Like Fun!" Grid.Column="2" Grid.Row="4" Margin="20" Click="playerButton_Click"/>
 
             </Grid>
 
@@ -91,7 +91,7 @@
 
 
 
-                <Image x:Name="playerPicture" Width ="100" Height="100"
+                <Image x:Name="playerPicture" Source="/img/playerIcon1.png"  Width ="100" Height="100"
                        HorizontalAlignment="Left"
                        Grid.Column="1" Grid.Row="1" Margin="10" Grid.ColumnSpan="2"/>
                 <!--Fields needs to be generated from reading file-->
