@@ -46,6 +46,7 @@
     <Content Include="img\demo\4received.PNG" />
     <Content Include="img\demo\5translated.PNG" />
     <Content Include="img\demo\6languageUnknown.PNG" />
+    <Content Include="img\playerIcon1.png" />
     <Content Include="WpfWindow1.xaml" />
     <Content Include="WpfWindow2.xaml" />
   </ItemGroup>
