@@ -5,6 +5,7 @@ function Add-ControlVariables { # May need to add variables from UI here manuall
 New-Variable -Name 'window' -Value $window.FindName('window') -Scope 1 -Force	
 New-Variable -Name 'playerButton' -Value $window.FindName('playerButton') -Scope 1 -Force	
 New-Variable -Name 'playerPicture' -Value $window.FindName('playerPicture') -Scope 1 -Force
+New-Variable -Name 'languageComboBox' -Value $window.FindName('languageComboBox') -Scope 1 -Force
 
 	
 }
@@ -75,27 +76,9 @@ function newWindow_Click
 function playerButton_Click
 {
 	param($sender, $e)
-	$array = @()
-	$people = New-Object -TypeName PSObject -Property @{
-		'FirstName' ="Tim"
-		'LastName' = "Corey"
-		'Fullname' = $people.FirstName +" "+ $people.LastName
-	}
-	$array += $people
-	$people = New-Object -TypeName PSObject -Property @{
-		'FirstName' ="Joe"
-		'LastName' = "Smith"
-		'Fullname' = $people.FirstName +" "+ $people.LastName
-	}
-	$array += $people
-	$people = New-Object -TypeName PSObject -Property @{
-		'FirstName' ="Sue"
-		'LastName' = "Storm"
-		'Fullname' = $people.FirstName +" "+ $people.LastName
-	}
-	$array += $people
+
 }
 
-#identified image variable for player stats tab
-
+$languages=@("common","Elvish","blah","blah")
+$languageComboBox = $languages
 $window.ShowDialog()
