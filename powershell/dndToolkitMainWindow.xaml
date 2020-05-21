@@ -5,9 +5,9 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="window"
     FontSize ="12" FontFamily="Source Code Pro"
   Title="dndToolkit" Height="552" Width="1119" Loaded="window_Loaded" Background="#FF2C2C2C">
-    <TabControl TabStripPlacement="Left" Background="#FF676666" BorderBrush="{x:Null}">
+    <TabControl x:Name="menuTab" TabStripPlacement="Left" Background="#FF676666" BorderBrush="{x:Null}">
         <!--Intro Section-->
-        <TabItem Header="Intro" Background="#FF676666" BorderBrush="#FF676666">
+        <TabItem x:Name="intro" Header="Intro" Background="#FF676666" BorderBrush="#FF676666" Visibility="Hidden">
             <Grid Background="#FFE5E5E5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="20"/>
@@ -46,7 +46,7 @@
                     Width="300"
                     TextWrapping="Wrap"
                     Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>
-                <Button Content="I Don't Like To Think!" Grid.Column="1" Grid.Row="4" Margin="20"/>
+                <Button x:Name="buttonSelectDM" Content="I Don't Like Fun!" Grid.Column="1" Grid.Row="4" Margin="20" Click="buttonSelectDM_Click"/>
                 <!--Player Section-->
 
 
@@ -62,13 +62,13 @@
                     Width="300"
                     TextWrapping="Wrap"
                     Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>
-                <Button x:Name="playerButton" Content="I Don't Like Fun!" Grid.Column="2" Grid.Row="4" Margin="20" Click="playerButton_Click"/>
+                <Button x:Name="buttonSelectPlayer" Content="I Don't Like To Think!" Grid.Column="2" Grid.Row="4" Margin="20" Click="buttonSelectPlayer_Click"/>
 
             </Grid>
 
         </TabItem>
         <!--Player Section-->
-        <TabItem Header="Player Stats"  Background="#FF676666" BorderBrush="#FF676666">
+        <TabItem x:Name="playerStats" Header="Player Stats"  Background="#FF676666" BorderBrush="#FF676666" IsEnabled="False">
             <Grid Background="#FF676666" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="10"/>
@@ -163,7 +163,7 @@
                                 <Run Text="Detailed Stats go here!
         
                                      I really should change the simple stats and these stats to something else.
-                                     Probable a list view? To read in the json and fill up a single row/column entry with data"/>
+                                     Probably a list view? To read in the json and fill up a single row/column entry with data"/>
                             </Paragraph>
                         </FlowDocument>
                     </RichTextBox>

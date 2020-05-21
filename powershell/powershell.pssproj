@@ -15,6 +15,7 @@
     <PackageModules>True</PackageModules>
     <StartupFile>dndToolkitMainWindow.xaml.ps1</StartupFile>
     <HighDPISupport>False</HighDPISupport>
+    <HideConsoleWindow>True</HideConsoleWindow>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
