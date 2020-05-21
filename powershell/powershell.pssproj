@@ -12,8 +12,9 @@
     <DotNetVersion>v4.7.2</DotNetVersion>
     <PackageType>Console</PackageType>
     <PackageAsExecutable>True</PackageAsExecutable>
-    <PackageModules>False</PackageModules>
+    <PackageModules>True</PackageModules>
     <StartupFile>dndToolkitMainWindow.xaml.ps1</StartupFile>
+    <HighDPISupport>False</HighDPISupport>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,6 +52,7 @@
     <Content Include="WpfWindow2.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="data\resources.psm1" />
     <Compile Include="dndToolkitMainWindow.xaml.ps1">
       <SubType>Code</SubType>
       <DependentUpon>dndToolkitMainWindow.xaml</DependentUpon>

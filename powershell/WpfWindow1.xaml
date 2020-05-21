@@ -29,7 +29,7 @@
                    Margin="0,0,0,5"
                    FontSize="36" 
                    Text="WPF SUPER DEMO"/>
-     
+
         <TextBlock Grid.Column="1" Grid.Row="2" 
                    FontWeight="Bold"
                    Text="First Name"/>
@@ -79,8 +79,8 @@
             </StackPanel>
 
         </ScrollViewer>
-        
-        
-        
+
+
+
     </Grid>
 </Window>

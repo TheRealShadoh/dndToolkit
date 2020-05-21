@@ -1,8 +1,16 @@
 {
   "charName" : "Shadoh",
-  "playerName" : "Chris",
-  "playerNumber" : 1,
+  "class" : "Fighter",
+  "Level" : 5,
   "charRace" : "Elf",
+  "background" : "He's friends with Yisan",
+  "alignment" : "Good",
+  "playerName" : "Chris",
+  "exp" : 2000,
+
+
+
+
   "charLanguages" : [
     "Common",
     "Elvish"

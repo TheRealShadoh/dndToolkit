@@ -51,8 +51,13 @@ Set-EventHandlers
 function window_Loaded
 {
 	param($sender, $e)
-	$playerPicture.Source = $PSScriptRoot +"\img\playerIcon1.png"
-
+	$playerImg = playerImg1
+	$bitmap = New-Object System.Windows.Media.Imaging.BitmapImage
+	$bitmap.BeginInit()
+	$bitmap.StreamSource = [System.IO.MemoryStream][System.Convert]::FromBase64String($playerImg)
+	$bitmap.EndInit()
+	$bitmap.Freeze()
+	$playerPicture.Source = $bitmap
 }
 
 #.(Join-Path $PSScriptRoot "modules.psm1")
@@ -81,4 +86,7 @@ function playerButton_Click
 
 $languages=@("common","Elvish","blah","blah")
 $languageComboBox = $languages
+#Import resources
+Import-Module "C:\git\dndToolkit\powershell\data\resources.psm1"
+
 $window.ShowDialog()
