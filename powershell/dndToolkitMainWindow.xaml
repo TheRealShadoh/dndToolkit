@@ -168,27 +168,14 @@
                         </FlowDocument>
                     </RichTextBox>
                 </ScrollViewer>
-                <TextBox  Grid.Row="8" Grid.Column="6" Grid.RowSpan="4"  Margin="10" Background="#FFBFB8B8" Text="Enter Message" />
+                <TextBox x:Name="chatEnter"  Grid.Row="8" Grid.Column="6" Grid.RowSpan="4"  Margin="10" Background="#FFBFB8B8" Text="Enter Message" KeyDown="chatEnter_KeyDown" />
                 <TextBox  Grid.Row="9" Grid.Column="6" Grid.RowSpan="3"  Margin="10" Background="#FFA49D9D" Text="You said..." />
 
 
                 <ScrollViewer  Grid.Row="1" Grid.Column="6" Grid.RowSpan="7"  >
-                    <RichTextBox
-                             Margin="10"
-                             Background="#FFA19999">
-                        <FlowDocument>
-                            <Paragraph>
-                                <Run Text="Chat log goes here!
-                                     Type in your message, or the message someone sent you!
-                                     It will then translate if you know the language and add it to the chat log.
-                                     If it recognizes that you're the one sending the message it will display it in the box below.
-
-                                     I'm open to a better way to do this.
+                    <TextBox x:Name="chatLog"  Margin="10" Background="#FFA19999" Text="{Binding chatLog}"/>
  
-                                     "/>
-                            </Paragraph>
-                        </FlowDocument>
-                    </RichTextBox>
+                    
                 </ScrollViewer>
 
 
