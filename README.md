@@ -4,11 +4,16 @@
 - exeldrian
 
 ## Basic function
-GM Screen
-```dndTranslatorPOSH_GMScreen.ps1```
+To run this uncompiled, run...
+```
+dndToolKitMainWindow.xaml.ps1
+```
 
-Player screen
-``` dndTranslatorPOSH_PlayerScreen.ps1 ```
+Note... the embeded resources aren't relative pathed at the moment.
+
+
+Or just run the .exe
+[dndToolkit.exe](powershell/bin/Debug/dndToolkitMainWindow.xaml.exe)
 
 Converted without salt, you trust your players
 ```
