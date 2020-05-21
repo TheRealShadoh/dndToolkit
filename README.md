@@ -1,4 +1,4 @@
-# dndTranslator
+# dndToolkit
 ## Team
 - GMZeirith
 - exeldrian
