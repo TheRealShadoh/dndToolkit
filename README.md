@@ -1,7 +1,9 @@
 # dndToolkit
 ## Team
+- TheRealShadoh
 - GMZeirith
-- exeldrian
+- Exeldrian
+
 
 ## Basic function
 To run this uncompiled, run...
@@ -26,9 +28,6 @@ Converted with salt, players will not be able to decode the message without you 
 kQN YN01XW 7X3 J0N UXXTRWP OX0 VJ7 QJ4N LXVN 2Q0X3PQ 2QR1 J0NJG J ON5 LXRW1 VJ7 QNUY VN 0NVNVKN0B H] n9j j9ck(!I
 The person you are looking for may have come through this area, a few coins may help me remember. [I WAS SALTED]
 ```
-
-![](img/demo/5translated.png)
-
 
 
 ## TODO
