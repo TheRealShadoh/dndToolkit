@@ -4,7 +4,7 @@
 
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="window"
     FontSize ="12" FontFamily="Source Code Pro"
-  Title="dndToolkit" Height="629.333" Width="765.333" Loaded="window_Loaded" Background="#FF2C2C2C">
+  Title="dndToolkit" Height="530.667" Width="1067" Loaded="window_Loaded" Background="#FF2C2C2C">
     <TabControl x:Name="menuTab" TabStripPlacement="Left" Background="#FF676666" BorderBrush="{x:Null}">
         <!--Intro Section-->
         <TabItem x:Name="intro" Header="Intro" Background="#FF676666" BorderBrush="#FF676666" Visibility="Hidden">
@@ -74,34 +74,54 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5"/>
                     <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="5"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                
 
-                <StackPanel x:Name="playerSimpleStats" Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top">
+
+                <Rectangle Grid.Column="2" Grid.Row="0" Grid.RowSpan="10" Fill="#FFA0A0A0"/>
+
+
+
+
+                <StackPanel x:Name="playerSimpleStats" Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top" Margin="0,0,5,0">
                     <Image x:Name="playerPicture" Source="/img/playerIcon1.png" HorizontalAlignment="Left" Height="100" 
                        />
                 </StackPanel>
 
-                <StackPanel  Grid.Column="2" HorizontalAlignment="Left"  Grid.Row="2" VerticalAlignment="Top">
-
-
+                <StackPanel x:Name="playerDetailedStats"  Grid.Column="2" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top">
                 </StackPanel>
 
-                <StackPanel Grid.Column="3"  Grid.ColumnSpan="2" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top">
-                    <ScrollViewer  Grid.Row="1" Grid.Column="6" Grid.RowSpan="7"  >
-                        <TextBox x:Name="chatLog"  Margin="10" Background="#FFA19999" Text="{Binding chatLog}"/>
-                    </ScrollViewer>
-                    <TextBox  Grid.Row="9" Grid.Column="6" Grid.RowSpan="3"  Margin="10" Background="#FFA49D9D" Text="You said..." />
+                <!--<StackPanel  Grid.RowSpan ="4" Grid.Column="3"  Grid.ColumnSpan="2" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top" Margin="10">-->
+                <ScrollViewer MaxHeight="400" MinWidth="400"  Grid.RowSpan ="2" Grid.Column="3" Grid.Row="1" 
+                         VerticalAlignment="Top" Margin="10" >
+                    <TextBlock 
+                         x:Name="chatLog"  Background="#FFA19999" Text="{Binding chatLog}"/>
+                </ScrollViewer>
+ 
+                
+                <TextBox Grid.RowSpan ="2" Grid.Column="3" Grid.Row="3" 
+                         VerticalAlignment="Top" Margin="10" MinWidth="300" 
+                         x:Name="chatEnter" Background="#FFA49D9D" Text="Enter Ye Message Here!....." KeyDown="chatEnter_KeyDown" />
+                
+                <TextBox Grid.RowSpan ="2" Grid.Column="3" Grid.Row="5" 
+                         VerticalAlignment="Top" Margin="10" MinWidth="300" 
+                         Background="#FFA49D9D" Text="You said..." />
 
-                </StackPanel>
+                <!--</StackPanel>-->
             </Grid>
         </TabItem>
 

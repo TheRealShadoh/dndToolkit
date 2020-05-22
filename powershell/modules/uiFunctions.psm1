@@ -30,7 +30,8 @@ function New-PlayerLanguages {
 function New-PlayerInfo {
     param(
         $PlayersInfo,
-        $TargetPanel,
+        $SimpleStatsTarget,
+        $DetailedStatsTarget,
         $Initialize
     )
     if ($Initialize) {
@@ -48,9 +49,10 @@ function New-PlayerInfo {
                     $label.Text = $key + ": "
                     $texblock = New-Object System.Windows.Controls.TextBlock
                     $texblock.Text = $player.simpleStats.$key
+                    $texblock.TextWrapping = "Wrap"
                     $dockPanel.AddChild($label)
                     $dockPanel.AddChild($texblock)
-                    $TargetPanel.AddChild($dockPanel)
+                    $SimpleStatsTarget.AddChild($dockPanel)
 
                 }
                 Default {
@@ -59,9 +61,10 @@ function New-PlayerInfo {
                     $label.Text = $key + ": "
                     $texblock = New-Object System.Windows.Controls.TextBlock
                     $texblock.Text = $player.simpleStats.$key
+                    $texblock.TextWrapping = "Wrap"
                     $dockPanel.AddChild($label)
                     $dockPanel.AddChild($texblock)
-                    $TargetPanel.AddChild($dockPanel)
+                    $SimpleStatsTarget.AddChild($dockPanel)
 
                 }
             }
@@ -75,9 +78,10 @@ function New-PlayerInfo {
                     $label.Text = $key + ": "
                     $texblock = New-Object System.Windows.Controls.TextBlock
                     $texblock.Text = $player.detailedStats.$key
+                    $texblock.TextWrapping = "Wrap"
                     $dockPanel.AddChild($label)
                     $dockPanel.AddChild($texblock)
-                    $TargetPanel.AddChild($dockPanel)
+                    $DetailedStatsTarget.AddChild($dockPanel)
 
                 }
                 Default {
@@ -86,9 +90,10 @@ function New-PlayerInfo {
                     $label.Text = $key + ": "
                     $texblock = New-Object System.Windows.Controls.TextBlock
                     $texblock.Text = $player.detailedStats.$key
+                    $texblock.TextWrapping = "Wrap"
                     $dockPanel.AddChild($label)
                     $dockPanel.AddChild($texblock)
-                    $TargetPanel.AddChild($dockPanel)
+                    $DetailedStatsTarget.AddChild($dockPanel)
 
                 }
             }
