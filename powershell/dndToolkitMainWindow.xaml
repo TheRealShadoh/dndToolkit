@@ -4,7 +4,7 @@
 
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="window"
     FontSize ="12" FontFamily="Source Code Pro"
-  Title="dndToolkit" Height="552" Width="1119" Loaded="window_Loaded" Background="#FF2C2C2C">
+  Title="dndToolkit" Height="629.333" Width="765.333" Loaded="window_Loaded" Background="#FF2C2C2C">
     <TabControl x:Name="menuTab" TabStripPlacement="Left" Background="#FF676666" BorderBrush="{x:Null}">
         <!--Intro Section-->
         <TabItem x:Name="intro" Header="Intro" Background="#FF676666" BorderBrush="#FF676666" Visibility="Hidden">
@@ -68,117 +68,40 @@
 
         </TabItem>
         <!--Player Section-->
-        <TabItem x:Name="playerStats" Header="Player Stats"  Background="#FF676666" BorderBrush="#FF676666" IsEnabled="False">
+        <TabItem x:Name="playerStats" Header="Player Stats"  Background="#FF676666" BorderBrush="#FF676666" IsEnabled="False" Loaded="playerStats_Loaded">
+            <!--Player Simple Stats Grid-->
             <Grid Background="#FF676666" >
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="5"/>
                     <ColumnDefinition Width="auto"/>
-                    <!--Icon/Label-->
                     <ColumnDefinition Width="auto"/>
-                    <!--Char Info-->
-                    <ColumnDefinition Width="400"/>
-                    <!--Chatbox-->
-                    <ColumnDefinition Width="auto"/>
-                    <!--Detailed Player Stats-->
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="5"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-
-                    <RowDefinition Height="20"/>
                 </Grid.RowDefinitions>
+                
 
-                <Image x:Name="playerPicture" Source="/img/playerIcon1.png"  Width ="100" Height="100"
-                       HorizontalAlignment="Left"
-                       Grid.Column="1" Grid.Row="1" Margin="10" Grid.ColumnSpan="2"/>
-                <!--Fields needs to be generated from reading file-->
-                <TextBlock Grid.Column="1" Grid.Row="2" Margin="0,0,5,0"
-                   Grid.ColumnSpan="1"
-                   FontWeight="Bold"
-                   HorizontalAlignment="Right"
-                   Text="Character Name:" />
-                <TextBlock Grid.Column="1" Grid.Row="3"  Margin="0,0,5,0"
-                   Grid.ColumnSpan="1"
-                   FontWeight="Bold"
-                   HorizontalAlignment="Right"
-                   Text="Character Race:"/>
-                <TextBlock Grid.Column="1" Grid.Row="4"  Margin="0,0,5,0"
-                   Grid.ColumnSpan="1"
-                   FontWeight="Bold"
-                   HorizontalAlignment="Right"
-                   Text="Player Name:"/>
-                <TextBlock Grid.Column="1" Grid.Row="5"  Margin="0,0,5,0"
-                   Grid.ColumnSpan="1"
-                   HorizontalAlignment="Right"
-                   FontWeight="Bold"
-                   Text="Known Languages:"/>
-                <!--Values... To be auto generated-->
-                <TextBlock Grid.Column="2" Grid.Row="2"  Margin="0,0,5,0"
-                   Grid.ColumnSpan="1"
-                   FontWeight="Bold"
-                   HorizontalAlignment="Left"
-                   Text="Shadoh" />
-                <TextBlock Grid.Column="2" Grid.Row="3" Margin="0,0,5,0"
-                   Grid.ColumnSpan="1"
-                   FontWeight="Bold"
-                   HorizontalAlignment="Left"
-                   Text="Elf"/>
-                <TextBlock Grid.Column="2" Grid.Row="4" Margin="0,0,5,0"
-                   Grid.ColumnSpan="1"
-                   FontWeight="Bold"
-                   HorizontalAlignment="Left"
-                   Text="Chris"/>
-                <TextBlock Grid.Column="2" Grid.Row="5" Margin="0,0,5,0"
-                   Grid.ColumnSpan="1"
-                   HorizontalAlignment="Left"
-                   FontWeight="Bold">
-                    <TextBlock>
-                        Common
-                        <LineBreak />
-                        Elvish
-                    </TextBlock>
-                </TextBlock>
+                <StackPanel x:Name="playerSimpleStats" Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top">
+                    <Image x:Name="playerPicture" Source="/img/playerIcon1.png" HorizontalAlignment="Left" Height="100" 
+                       />
+                </StackPanel>
 
-                <Rectangle
-                    Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="12" Grid.RowSpan="100" Fill="#FFA19999">
-
-                </Rectangle>
-                <ScrollViewer  Grid.Row="1" Grid.Column="3" Grid.RowSpan="7" >
-                    <RichTextBox 
-                             Margin="10"
-                             Background="#FFA19999">
-                        <FlowDocument>
-                            <Paragraph>
-                                <Run Text="Detailed Stats go here!
-        
-                                     I really should change the simple stats and these stats to something else.
-                                     Probably a list view? To read in the json and fill up a single row/column entry with data"/>
-                            </Paragraph>
-                        </FlowDocument>
-                    </RichTextBox>
-                </ScrollViewer>
-                <TextBox x:Name="chatEnter"  Grid.Row="8" Grid.Column="6" Grid.RowSpan="4"  Margin="10" Background="#FFBFB8B8" Text="Enter Message" KeyDown="chatEnter_KeyDown" />
-                <TextBox  Grid.Row="9" Grid.Column="6" Grid.RowSpan="3"  Margin="10" Background="#FFA49D9D" Text="You said..." />
+                <StackPanel  Grid.Column="2" HorizontalAlignment="Left"  Grid.Row="2" VerticalAlignment="Top">
 
 
-                <ScrollViewer  Grid.Row="1" Grid.Column="6" Grid.RowSpan="7"  >
-                    <TextBox x:Name="chatLog"  Margin="10" Background="#FFA19999" Text="{Binding chatLog}"/>
- 
-                    
-                </ScrollViewer>
+                </StackPanel>
 
+                <StackPanel Grid.Column="3"  Grid.ColumnSpan="2" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top">
+                    <ScrollViewer  Grid.Row="1" Grid.Column="6" Grid.RowSpan="7"  >
+                        <TextBox x:Name="chatLog"  Margin="10" Background="#FFA19999" Text="{Binding chatLog}"/>
+                    </ScrollViewer>
+                    <TextBox  Grid.Row="9" Grid.Column="6" Grid.RowSpan="3"  Margin="10" Background="#FFA49D9D" Text="You said..." />
 
+                </StackPanel>
             </Grid>
         </TabItem>
 

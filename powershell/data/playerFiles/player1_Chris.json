@@ -1,10 +1,19 @@
 {
-  "charName" : "Shadoh",
-  "playerName" : "Chris",
-  "playerNumber" : 1,
-  "charRace" : "Elf",
-  "charLanguages" : [
-    "Common",
-    "Elvish"
-  ]
+  "simpleStats" : {
+    "Character Name" : "Shadoh",
+    "Race" : "Elf",
+    "Player" : "Chris",
+    "Player Number" : 1,
+    "Level" : 5,
+    "Languages" : [
+      "Common",
+      "Elvish"
+    ]
+  },
+  "detailedStats" :
+    {
+      "Background" : "He's friends with Yisan",
+      "Alignment" : "Good",
+      "Exp" : 2000
+    }
 }

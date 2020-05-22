@@ -13,6 +13,7 @@ New-Variable -Name 'buttonSelectDM' -Value $window.FindName('buttonSelectDM') -S
 New-Variable -Name 'menuTab' -Value $window.FindName('menuTab') -Scope 1 -Force	#Databind for text box
 New-Variable -Name 'playerStats' -Value $window.FindName('playerStats') -Scope 1 -Force	#Databind for text box
 New-Variable -Name 'intro' -Value $window.FindName('intro') -Scope 1 -Force	#Databind for text box
+New-Variable -Name 'playerSimpleStats' -Value $window.FindName('playerSimpleStats') -Scope 1 -Force	#Databind for text box
 }
 
 function Load-Xaml {
@@ -24,6 +25,7 @@ function Load-Xaml {
 	$xaml.SelectNodes("//*[@x:Name='chatEnter']", $manager)[0].RemoveAttribute('KeyDown')
 	$xaml.SelectNodes("//*[@x:Name='buttonSelectPlayer']", $manager)[0].RemoveAttribute('Click')
 	$xaml.SelectNodes("//*[@x:Name='buttonSelectDM']", $manager)[0].RemoveAttribute('Click')
+	$xaml.SelectNodes("//*[@x:Name='playerStats']", $manager)[0].RemoveAttribute('Loaded')
 	$xamlReader = New-Object System.Xml.XmlNodeReader $xaml
 	[Windows.Markup.XamlReader]::Load($xamlReader)
 }
@@ -55,6 +57,10 @@ function Set-EventHandlers {
 	$buttonSelectDM.add_Click({
 		param([System.Object]$sender,[System.Windows.RoutedEventArgs]$e)
 		buttonSelectDM_Click($sender,$e)
+	})
+	$playerStats.add_Loaded({
+		param([System.Object]$sender,[System.Windows.RoutedEventArgs]$e)
+		playerStats_Loaded($sender,$e)
 	})
 
 
@@ -88,25 +94,27 @@ $dataDir = Split-Path -Parent $workingDir
 $dataDir = Split-Path -Parent $dataDir
 #endregion Pathing
 
-Import-Module  "$psscriptroot\dndTranslatorPOSH\dndTranslatorPOSH.psd1" -Force -Verbose
+Import-Module  "C:\git\dndToolkit\powershell\modules\dndToolkit.psd1" -Force -Verbose
 
 $global:data = @{ } #share data between scopes
 
 # Language import
-$langMap = Get-Content "$dataDir\data\languages\default.json" -Raw
+$langMap = Get-Content "C:\git\dndToolkit\powershell\data\languages\default.json" -Raw
 $langMap = $langMap | ConvertFrom-Json
 $global:data.Add('langmap', $langMap)
 
 # Setup Players - not used for player screen
-#$players = Get-childitem C:\git\dndTranslator\data\playerFiles\ | ForEach-Object {Get-Content $_.FullName -Raw | ConvertFrom-Json}   #will need to set this up for proper pathing
+$players = Get-childitem "C:\git\dndToolkit\powershell\data\playerFiles\" | ForEach-Object {Get-Content $_.FullName -Raw | ConvertFrom-Json}   #will need to set this up for proper pathing
 # Setup NPC
-#$npcs = Get-childitem C:\git\dndTranslator\data\npcFiles\ | ForEach-Object {Get-Content $_.FullName -Raw | ConvertFrom-Json}   #will need to set this up for proper pathing
-#$global:data.Add('players',$players) # not used for player screen
+$npcs = Get-childitem "C:\git\dndToolkit\powershell\data\npcFiles\" | ForEach-Object {Get-Content $_.FullName -Raw | ConvertFrom-Json}   #will need to set this up for proper pathing
+$global:data.Add('players',$players) # not used for player screen
 $global:data.Add('npcs', $npcs)
 
 
 
-function window_Loaded
+
+
+function window_Loaded
 {
 	param($sender, $e)
 	$playerImg = playerImg1
@@ -155,23 +163,27 @@ function buttonSelectPlayer_Click
 
 	[System.Windows.Forms.OpenFileDialog]$openFileDialog1 = $null
 	$openFileDialog1 = (New-Object -TypeName System.Windows.Forms.OpenFileDialog)
-	$openFileDialog1.ShowDialog()
 
+	$openFileDialog1.ShowDialog()
 
 		# Read each file, import and convert from json into usable data
 
-	#                            $players = Get-childitem $playerFile | ForEach-Object { Get-Content $_.FullName -Raw | ConvertFrom-Json }
+	$players = Get-Content -Path $openFileDialog1.FileName -Raw | ConvertFrom-Json -AsHashTable
 
 
 	# Update databinging... update ui
-	#written for winforms              New-PlayerInfo -PlayersInfo $players -TargetPanel $flowLayoutPanel1
-
-
-
+	$playerInfo = New-PlayerInfo -PlayersInfo $players -TargetPanel $playerSimpleStats
 	$playerStats.IsEnabled = $true
 	$intro.isEnabled = $false
 	$menuTab.selectedItem = $playerStats
 }
+
+function playerStats_Loaded
+{
+	param($sender, $e)
+
+}
+
 
 
 
@@ -190,7 +202,7 @@ function buttonSelectDM_Click
 
 	# Read each file, import and convert from json into usable data
 
-	#                            $players = Get-childitem $playerFile | ForEach-Object { Get-Content $_.FullName -Raw | ConvertFrom-Json }
+	#$players = Get-childitem $playerFile | ForEach-Object { Get-Content $_.FullName -Raw | ConvertFrom-Json }
 
 
 	# Update databinging... update ui
