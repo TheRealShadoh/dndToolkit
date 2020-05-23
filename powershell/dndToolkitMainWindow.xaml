@@ -4,7 +4,7 @@
 
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="window"
     FontSize ="12" FontFamily="Source Code Pro"
-  Title="dndToolkit" Height="530.667" Width="1067" Loaded="window_Loaded" Background="#FF2C2C2C">
+  Title="dndToolkit" Height="800" Width="1136" Loaded="window_Loaded" Background="#FF2C2C2C" MinWidth="1136" MinHeight="800">
     <TabControl x:Name="menuTab" TabStripPlacement="Left" Background="#FF676666" BorderBrush="{x:Null}">
         <!--Intro Section-->
         <TabItem x:Name="intro" Header="Intro" Background="#FF676666" BorderBrush="#FF676666" Visibility="Hidden">
@@ -102,23 +102,35 @@
                        />
                 </StackPanel>
 
-                <StackPanel x:Name="playerDetailedStats"  Grid.Column="2" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top">
+                <StackPanel x:Name="playerDetailedStats"  Grid.Column="2" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top" MinWidth="400">
                 </StackPanel>
 
                 <!--<StackPanel  Grid.RowSpan ="4" Grid.Column="3"  Grid.ColumnSpan="2" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top" Margin="10">-->
-                <ScrollViewer MaxHeight="400" MinWidth="400"  Grid.RowSpan ="2" Grid.Column="3" Grid.Row="1" 
-                         VerticalAlignment="Top" Margin="10" >
+                <ScrollViewer  Grid.RowSpan ="2" Grid.Column="3" Grid.Row="1"  MinHeight="300" 
+                         VerticalAlignment="Top" Margin="10" Grid.ColumnSpan="2" >
                     <TextBlock 
-                         x:Name="chatLog"  Background="#FFA19999" Text="{Binding chatLog}"/>
+                         x:Name="chatLog"  Background="#FFA19999" Text="{Binding chatLog}" TextWrapping="Wrap"/>
                 </ScrollViewer>
 
+                <ComboBox x:Name="languageComboBox"  Grid.Column="3" Grid.Row="5" Margin="200,0,0,0">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="C:\Users\Chris\Desktop\dockers.PNG" Height="20" Width="20"/>
+                                <TextBlock Text="{Binding Languages}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
 
-                <TextBox x:Name="chatEnter" Grid.RowSpan ="2" Grid.Column="3" Grid.Row="3" 
-                         VerticalAlignment="Top" Margin="10" MinWidth="300" 
+                <TextBox x:Name="chatEnter" Grid.RowSpan ="1" Grid.Column="3" Grid.Row="6" 
+                         TextWrapping="Wrap"
+                         VerticalAlignment="Top" Margin="10" MinWidth="300" MinHeight="100"
                           Background="#FFA49D9D" Text="Enter Ye Message Here!....." KeyDown="chatEnter_KeyDown" />
 
-                <TextBox x:Name="chatWhatYouSent" Grid.RowSpan ="2" Grid.Column="3" Grid.Row="5" 
-                         VerticalAlignment="Top" Margin="10" MinWidth="300" 
+                <TextBox x:Name="chatWhatYouSent" Grid.RowSpan ="1" Grid.Column="3" Grid.Row="7" 
+                         TextWrapping="Wrap"
+                         VerticalAlignment="Top" Margin="10" MinWidth="300" MinHeight="100"
                          Background="#FFA49D9D" Text="You said..." />
 
                 <!--</StackPanel>-->

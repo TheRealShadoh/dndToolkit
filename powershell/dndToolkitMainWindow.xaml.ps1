@@ -153,6 +153,9 @@ function buttonSelectPlayer_Click {
 	$playerStats.IsEnabled = $true
 	$intro.isEnabled = $false
 	$menuTab.selectedItem = $playerStats
+	$languageComboBox.ItemsSource = $global:data.players.SimpleStats
+
+
 }
 
 function playerStats_Loaded {
