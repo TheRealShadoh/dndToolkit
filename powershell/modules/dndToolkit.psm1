@@ -153,6 +153,10 @@ function Get-TranslatedMessageAuto {
         #Receiving
         $Message = $Message.TrimStart('[SEND]').trim('::')
     }
+    if ($Message.Split('::')[0] -eq '[RECEIVE]') {
+        #Receiving
+        $Message = $Message.TrimStart('[RECEIVE]').trim('::')
+    }
     switch ($isDM) {
         $true {
             $splitMessage = Get-CipherTag -Message $Message
