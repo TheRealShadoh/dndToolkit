@@ -15,6 +15,8 @@ function Add-ControlVariables { # May need to add variables from UI here manuall
 	New-Variable -Name 'intro' -Value $window.FindName('intro') -Scope 1 -Force
 	New-Variable -Name 'playerSimpleStats' -Value $window.FindName('playerSimpleStats') -Scope 1 -Force
 	New-Variable -Name 'playerDetailedStats' -Value $window.FindName('playerDetailedStats') -Scope 1 -Force
+	New-Variable -Name 'chatWhatYouSent' -Value $window.FindName('chatWhatYouSent') -Scope 1 -Force
+	
 
 }
 
@@ -113,15 +115,17 @@ function chatEnter_KeyDown {
 		$chatlog.AppendText($chatEnter.text)
 		$chatlog.AppendText($boxbindingtest)
 		#>
-		if($chatEnter.text.Split('::')[0] -eq '[RECEIVE]'){
+		if($chatEnter.text.Split('::')[0] -eq '[SEND]'){
 			#Receiving
 			$translatedText = Get-TranslatedMessageAuto  -Language $global:data.langMap -Message $chatEnter.text -isDM $true
 		}
 		else{
 			$translatedText = Set-TranslatedMessage -LanguageFile $global:data.langMap -Language 'Goblin' -Message $chatEnter.text
+			$chatWhatYouSent.text = $translatedText
 		}
 		#Sending
 		$nl = [Environment]::NewLine
+
 		$chatlog.AddText($nl)
 		$chatlog.AddText($translatedText)
 

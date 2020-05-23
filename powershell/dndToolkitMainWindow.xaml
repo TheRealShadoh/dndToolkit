@@ -111,13 +111,13 @@
                     <TextBlock 
                          x:Name="chatLog"  Background="#FFA19999" Text="{Binding chatLog}"/>
                 </ScrollViewer>
- 
-                
-                <TextBox Grid.RowSpan ="2" Grid.Column="3" Grid.Row="3" 
+
+
+                <TextBox x:Name="chatEnter" Grid.RowSpan ="2" Grid.Column="3" Grid.Row="3" 
                          VerticalAlignment="Top" Margin="10" MinWidth="300" 
-                         x:Name="chatEnter" Background="#FFA49D9D" Text="Enter Ye Message Here!....." KeyDown="chatEnter_KeyDown" />
-                
-                <TextBox Grid.RowSpan ="2" Grid.Column="3" Grid.Row="5" 
+                          Background="#FFA49D9D" Text="Enter Ye Message Here!....." KeyDown="chatEnter_KeyDown" />
+
+                <TextBox x:Name="chatWhatYouSent" Grid.RowSpan ="2" Grid.Column="3" Grid.Row="5" 
                          VerticalAlignment="Top" Margin="10" MinWidth="300" 
                          Background="#FFA49D9D" Text="You said..." />
 

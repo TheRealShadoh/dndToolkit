@@ -149,6 +149,10 @@ function Get-TranslatedMessageAuto {
         [Parameter(Mandatory = $true)]
         [string]$isDM
     )
+    if ($Message.Split('::')[0] -eq '[SEND]') {
+        #Receiving
+        $Message = $Message.TrimStart('[SEND]').trim('::')
+    }
     switch ($isDM) {
         $true {
             $splitMessage = Get-CipherTag -Message $Message
@@ -199,11 +203,11 @@ function Get-TranslatedMessageAuto {
             }
             $plainTag = "[" + ($LanguageFile.langKeys.where( { $_.tag -eq $ciphertag }).name) + "]" + ":: "
 
-            if($KnownLanguages.Contains($LanguageFile.langKeys.where( { $_.tag -eq $ciphertag }).name)){ #if you know the language
+            if ($KnownLanguages.Contains($LanguageFile.langKeys.where( { $_.tag -eq $ciphertag }).name)) { #if you know the language
                 $cipherText = "[RECEIVE]::" + $plainTag + ($cipherTextArray -join "")
                 return Write-Output $cipherText
             }
-            else{ #you don't know the language
+            else { #you don't know the language
                 $cipherText = "[RECEIVE]::" + "[UNKNOWN]:: " + $plainText
                 return Write-Output $cipherText
             }
