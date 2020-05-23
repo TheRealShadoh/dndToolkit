@@ -3,18 +3,53 @@
     "Character Name" : "Shadoh",
     "Race" : "Elf",
     "Player" : "Chris",
-    "Player Number" : 1,
+    "Armor Class" : 10,
+    "Initiative" : 10,
+    "Speed" : 10,
     "Level" : 5,
     "Languages" : [
       "Common",
       "Elvish"
-    ]
+    ],
+    "Strength" : 10,
+    "Dexterity" : 10,
+    "Constitution" : 10,
+    "Intelligence" : 10,
+    "Wisdom" : 10,
+    "Charisma" : 10,
+    "Strength Saving Throw" :10,
+    "Dexterity Saving Throw" :10,
+    "Constitution Saving Throw" :10,
+    "Intelligence Saving Throw" :10,
+    "Wisdom Saving Throw" : 10,
+    "Charisma Saving Throw" :10,
+    "Current Hit Points" : 10,
+    "Temporary Hit Points" : 10
   },
   "detailedStats" :
     {
+      "Acrobatics" : 10,
+      "Animal Handling" : 10,
+      "Arcana" : 10,
+      "Athletics" : 10,
+      "Deception" : 10,
+      "History" :10,
+      "Insight" : 10,
+      "Intimidation" : 10,
+      "Investigation" :10,
+      "Medicine" : 10,
+      "Nature" : 10,
+      "Perception" : 10,
+      "Performance" : 10,
+      "Persuasion" : 10,
+      "Religion" : 10,
+      "Sleight of Hand" :10,
+      "Stealth" : 10,
+      "Survival" : 10,
       "Background" : "He's friends with Yisan, He's friends with Yisan,He's friends with Yisan,He's friends with Yisan,He's friends with Yisan,He's friends with Yisan,He's friends with Yisan
       linebreak? He's friends with YisanHe's friends with YisanHe's friends with YisanHe's friends with Yisan",
       "Alignment" : "Good",
       "Exp" : 2000
+
     }
 }
