@@ -66,35 +66,14 @@ function Set-EventHandlers {
 		})
 }
 
-
-
-
+#Load in ui info
 $window = Load-Xaml
 Add-ControlVariables
 Set-EventHandlers
 
-
-
-
-
-$boxbindingtest = "Chat log goes here!
-Type in your message, or the message someone sent you!
-It will then translate if you know the language and add it to the chat log.
-If it recognizes that you're the one sending the message it will display it in the box below.
-I'm open to a better way to do this."
-
 #Import resources
-Import-Module "C:\git\dndToolkit\powershell\data\resources.psm1"
-
-
-#Carry over from dndToolkit
-#region Pathing
-$workingDir = Split-Path -Parent $MyInvocation.MyCommand.path #$dndTranslatorPOSH_DMScreen_Load.file
-$dataDir = Split-Path -Parent $workingDir
-$dataDir = Split-Path -Parent $dataDir
-#endregion Pathing
-
-Import-Module  "C:\git\dndToolkit\powershell\modules\dndToolkit.psd1" -Force -Verbose
+Import-Module "C:\git\dndToolkit\powershell\data\resources.psm1" -Force
+Import-Module  "C:\git\dndToolkit\powershell\modules\dndToolkit.psd1" -Force
 
 $global:data = @{ } #share data between scopes
 
@@ -110,7 +89,7 @@ $npcs = Get-childitem "C:\git\dndToolkit\powershell\data\npcFiles\" | ForEach-Ob
 $global:data.Add('players', $players) # not used for player screen
 $global:data.Add('npcs', $npcs)
 
-
+$boxbindingtest = @("Chat Log!")
 
 
 
@@ -134,9 +113,17 @@ function chatEnter_KeyDown {
 		$chatlog.AppendText($chatEnter.text)
 		$chatlog.AppendText($boxbindingtest)
 		#>
-		$chatlog.Text += $chatEnter.text
-		$chatlog.Text += $boxbindingtest
-
+		if($chatEnter.text.Split('::')[0] -eq '[RECEIVE]'){
+			#Receiving
+			$translatedText = Get-TranslatedMessageAuto  -Language $global:data.langMap -Message $chatEnter.text -isDM $true
+		}
+		else{
+			$translatedText = Set-TranslatedMessage -LanguageFile $global:data.langMap -Language 'Goblin' -Message $chatEnter.text
+		}
+		#Sending
+		$nl = [Environment]::NewLine
+		$chatlog.AddText($nl)
+		$chatlog.AddText($translatedText)
 
 	}
 

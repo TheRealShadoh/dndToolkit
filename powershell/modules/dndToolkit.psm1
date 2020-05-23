@@ -121,7 +121,7 @@ function Set-TranslatedMessage {
         $cipherText = Get-MappedNumber -Letter $text -LanguageFile $LanguageFile -key $key -Action 'Encode'
         $cipherTextArray += $cipherText
     }
-    $cipherText = $cipherTag + " " + ($cipherTextArray -join "")
+    $cipherText = "[SEND]::" + $cipherTag + " " + ($cipherTextArray -join "")
     return $cipherText
 
 }
@@ -173,7 +173,7 @@ function Get-TranslatedMessageAuto {
             }
             $plainTag = "[" + ($LanguageFile.langKeys.where( { $_.tag -eq $ciphertag }).name) + "]" + ":: "
 
-            $cipherText = $plainTag + ($cipherTextArray -join "")
+            $cipherText = "[RECEIVE]::" + $plainTag + ($cipherTextArray -join "")
             return Write-Output $cipherText
         }
         $false {
@@ -200,11 +200,11 @@ function Get-TranslatedMessageAuto {
             $plainTag = "[" + ($LanguageFile.langKeys.where( { $_.tag -eq $ciphertag }).name) + "]" + ":: "
 
             if($KnownLanguages.Contains($LanguageFile.langKeys.where( { $_.tag -eq $ciphertag }).name)){ #if you know the language
-                $cipherText = $plainTag + ($cipherTextArray -join "")
+                $cipherText = "[RECEIVE]::" + $plainTag + ($cipherTextArray -join "")
                 return Write-Output $cipherText
             }
             else{ #you don't know the language
-                $cipherText = "[UNKNOWN]:: " + $plainText
+                $cipherText = "[RECEIVE]::" + "[UNKNOWN]:: " + $plainText
                 return Write-Output $cipherText
             }
 
