@@ -92,7 +92,6 @@
                 </Grid.RowDefinitions>
 
 
-                <Rectangle Grid.Column="2" Grid.Row="0" Grid.RowSpan="10" Fill="#FFA0A0A0"/>
 
 
 
@@ -101,8 +100,9 @@
                     <Image x:Name="playerPicture" Source="/img/playerIcon1.png" HorizontalAlignment="Left" Height="100" 
                        />
                 </StackPanel>
-
-                <StackPanel x:Name="playerDetailedStats"  Grid.Column="2" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top" MinWidth="400">
+                
+                <Rectangle Grid.Column="2" Grid.Row="0" Grid.RowSpan="10" Fill="#FFA0A0A0"/>
+                <StackPanel x:Name="playerDetailedStats"  Grid.Column="2" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top" >
                 </StackPanel>
 
                 <!--<StackPanel  Grid.RowSpan ="4" Grid.Column="3"  Grid.ColumnSpan="2" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top" Margin="10">-->
